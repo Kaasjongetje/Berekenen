@@ -14,7 +14,7 @@
     import DistanceCalculationMenu from "./lib/menus/DistanceCalculationMenu.svelte"
     import TimeCalculationMenu from "./lib/menus/TimeCalculationMenu.svelte"
 
-    let selectedCalculationType: CalculationType = CalculationType.SPEED
+    let selectedCalculationType: CalculationType = CalculationType.DISTANCE
 
     function onSelect (calculationType: CalculationType): void {
         if (selectedCalculationType !== calculationType) {
