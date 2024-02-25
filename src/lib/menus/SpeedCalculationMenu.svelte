@@ -3,16 +3,25 @@
     import TimeInput from "../inputs/TimeInput.svelte"
     import SpeedOutput from "../outputs/SpeedOutput.svelte"
 
-    let totalKilometres: number | undefined
-    let totalMinutes: number
+    let distance: number
+    let time: number
 
-    function onDistanceInput (newTotalKilometres: number | undefined): void {
-        totalKilometres = newTotalKilometres
-        console.log(newTotalKilometres)
+    $: speed = getSpeed(distance, time)
+
+    function getSpeed (distance: number, time: number): number | null {
+        if (isNaN(distance)) {
+            return null
+        } else {
+            return 60 / (time / distance)
+        }
     }
 
-    function onTimeSelect (newTotalMinutes: number): void {
-        totalMinutes = newTotalMinutes
+    function onDistanceInput (newDistance: number): void {
+        distance = newDistance
+    }
+
+    function onTimeSelect (newTime: number): void {
+        time = newTime
     }
 
 </script>
@@ -21,4 +30,4 @@
 
 <TimeInput onSelect={onTimeSelect} />
 
-<SpeedOutput />
+<SpeedOutput {speed} />

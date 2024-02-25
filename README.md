@@ -4,8 +4,11 @@ Update systeem?
 - Updates testen met updatefound etc
 - Hoe worden images ge-update?                !!!
 
-DistanceInput Finetune:
-- wat is de type van NaN ?
+SpeedOutput Finetune:
+- code mooier maken
+
+TimeInput Finetune:
+- Maximaal 11 uur ofzo kunnen kiezen
 
 Select Finetune:
 - 0 kun je niet selecteren met Enter             !!!!!
