@@ -3,8 +3,8 @@
     import TimeInput from "../inputs/TimeInput.svelte"
     import DistanceOutput from "../outputs/DistanceOutput.svelte"
 
-    let speed: number
-    let time: number
+    let speed: number = 10
+    let time: number = 60
 
     $: distance = time / (60 / speed)
 

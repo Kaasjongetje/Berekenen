@@ -50,8 +50,16 @@
 
 </script>
 
-<Select selectedValue={minutes} options={timeOptions1to60} onSelect={onMinuteSelect} />
-<Select selectedValue={seconds} options={timeOptions0to59} onSelect={onSecondSelect} />
-
-<Select selectedValue={kilometres} options={kilometreOptions1to60} onSelect={onKilometreSelect} />
-<Select selectedValue={decametres} options={decametreOptions0to99} onSelect={onDecametreSelect} />
+<div class="speed-wrapper">
+    <div class="value-wrapper">
+        <Select selectedValue={minutes} options={timeOptions1to60} onSelect={onMinuteSelect} />
+        <span>:</span>
+        <Select selectedValue={seconds} options={timeOptions0to59} onSelect={onSecondSelect} />
+    </div>
+    
+    <div class="value-wrapper">
+        <Select selectedValue={kilometres} options={kilometreOptions1to60} onSelect={onKilometreSelect} />
+        <span>,</span>
+        <Select selectedValue={decametres} options={decametreOptions0to99} onSelect={onDecametreSelect} />
+    </div>
+</div>

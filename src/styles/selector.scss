@@ -1,0 +1,27 @@
+@use "colors" as *;
+
+.calculation-type-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.calculation-type {
+    flex: 1;
+
+    padding: 0.25rem;
+    border-bottom: 0.125rem solid $bordor-color;
+    
+    font-size: 0.75rem;
+    text-align: center;
+    color: $text-color;
+
+    &:hover,
+    &:focus {
+        background-color: $hover-color;
+    }
+
+    &.selected {
+        border-color: $accent-color; 
+        background-color: $select-color;
+    }
+}

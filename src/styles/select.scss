@@ -1,0 +1,36 @@
+@use "colors" as *;
+@use "mixins" as *;
+
+.select {
+    position: relative;
+
+}
+
+.select-options {
+    position: absolute;
+    display: none;
+
+    height: 100px;
+    z-index: 1;
+
+    @include border;
+    background-color: $background-color;
+
+    overflow-y: scroll;
+}
+
+.select.open .select-options {
+    display: block;
+}
+
+.select-option {
+    @include selectValue;
+
+    &.hovered {
+        background-color: $hover-color;
+    }
+
+    &.selected {
+        background-color: $select-color;
+    }
+}

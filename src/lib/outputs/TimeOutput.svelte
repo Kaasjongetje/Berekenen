@@ -12,10 +12,12 @@
 
 </script>
 
-{#if time}
-    <span>{formatTime(hours)}</span>
-    <span>:</span>
-    <span>{formatTime(minutes)}</span>
-    <span>:</span>
-    <span>{formatTime(seconds)}</span>
-{/if}
+<div class="value-wrapper">
+    {#if time}
+        <span>{formatTime(hours)}</span>
+        <span>:</span>
+        <span>{formatTime(minutes)}</span>
+        <span>:</span>
+        <span>{formatTime(seconds)}</span>
+    {/if}
+</div>

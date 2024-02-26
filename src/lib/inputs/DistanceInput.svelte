@@ -9,7 +9,10 @@
 
 </script>
 
-<input
-    on:input={handleInput}
-    type="number"
->
+<div class="value-wrapper">
+    <input
+        class="distance-value"
+        on:input={handleInput}
+        type="number"
+    >
+</div>

@@ -1,0 +1,29 @@
+@use "colors" as *;
+@use "mixins" as *;
+
+.value-wrapper {
+    display: flex;
+    align-items: center;
+
+    padding: 0.25rem;
+    @include border;
+
+    font-size: 1.25rem;
+    color: $value-color;
+}
+
+.distance-value {
+    padding: 0.25rem;
+}
+
+.select-value {
+    @include selectValue;
+
+    &:hover {
+        background-color: $hover-color;
+    }
+}
+
+.open .select-value {
+    background-color: $select-color;
+}

@@ -1,43 +1,5 @@
-$focus-color: gray;
-$hover-color: gainsboro;
-
-.calculation-type-container {
-
-    .calculation-type {
-
-        cursor: pointer;
-
-        &.selected {
-            font-weight: bold;
-        }
-    }
-}
-
-.select {
-    position: relative;
-    
-
-    .select-options {
-        display: none;
-        position: absolute;
-    }
-
-    &.open {
-        
-        .select-options {
-            display: block;
-
-            .select-option {
-                display: block;
-
-                &.hovered {
-                    background-color: $hover-color;
-                }
-
-                &.selected {
-                    background-color: $focus-color;
-                }
-            }
-        }
-    }
-}
+@use "styles/reset";
+@use "styles/selector";
+@use "styles/app";
+@use "styles/value";
+@use "styles/select";

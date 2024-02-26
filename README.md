@@ -1,6 +1,11 @@
 Update systeem?
 - Kijk of je iets in de Response Head kan zetten van last modified en zo het update systeem maken
 
+Styling:
+- hover en select kleur voor select value
+- resets (input, :focus)
+- responsive
+
 - Updates testen met updatefound etc
 - Hoe worden images ge-update?                !!!
 

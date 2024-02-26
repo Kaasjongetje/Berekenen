@@ -12,12 +12,20 @@
     }
 </script>
 
-{#if speed}
-    <span>{minutes}</span>
-    <span>:</span>
-    <span>{seconds}</span>
+<div class="speed-wrapper">
+    <div class="value-wrapper">
+        {#if speed}
+            <span>{minutes}</span>
+            <span>:</span>
+            <span>{seconds}</span>
+        {/if}
+    </div>
 
-    <span>{kilometres}</span>
-    <span>,</span>
-    <span>{decametres}</span>
-{/if}
+    <div class="value-wrapper">
+        {#if speed}
+            <span>{kilometres}</span>
+            <span>,</span>
+            <span>{decametres}</span>
+        {/if}
+    </div>
+</div>

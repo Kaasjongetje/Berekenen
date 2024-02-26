@@ -2,6 +2,8 @@
     export let distance: number
 </script>
 
-<p>
-    {distance.toFixed(2).replace(".", ",")}
-</p>
+<div class="value-wrapper">
+    <span class="distance-value">
+        {distance.toFixed(2).replace(".", ",")}
+    </span>
+</div>

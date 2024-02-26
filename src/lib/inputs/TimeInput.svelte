@@ -31,6 +31,10 @@
 
 </script>
 
-<Select selectedValue={hours} options={timeOptions0to59} onSelect={onHourSelect} />
-<Select selectedValue={minutes} options={timeOptions0to59} onSelect={onMinuteSelect} />
-<Select selectedValue={seconds} options={timeOptions0to59} onSelect={onSecondSelect} />
+<div class="value-wrapper">
+    <Select selectedValue={hours} options={timeOptions0to59} onSelect={onHourSelect} />
+    <span>:</span>
+    <Select selectedValue={minutes} options={timeOptions0to59} onSelect={onMinuteSelect} />
+    <span>:</span>
+    <Select selectedValue={seconds} options={timeOptions0to59} onSelect={onSecondSelect} />
+</div>
