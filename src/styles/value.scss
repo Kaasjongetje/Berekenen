@@ -8,12 +8,13 @@
     padding: 0.25rem;
     @include border;
 
-    font-size: 1.25rem;
-    color: $value-color;
+    @include valueStyles;
 }
 
 .distance-value {
     padding: 0.25rem;
+    background-color: $background-color;
+    @include valueStyles
 }
 
 .select-value {
@@ -21,6 +22,10 @@
 
     &:hover {
         background-color: $hover-color;
+    }
+
+    &:focus {
+        background-color: $select-color;
     }
 }
 

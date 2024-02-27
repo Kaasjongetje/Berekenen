@@ -1,16 +1,28 @@
 <script lang="ts">
-    export let onInput: (totalKilometres: number) => void
+    import { getNumberFromLocalStorage } from "../scripts/utils";
+    import { onMount } from "svelte"
 
-    function handleInput (e: any) {
-        onInput(
-            parseFloat(e.target.value)
-        )
+    export let onInput: (totalKilometres: number) => void
+    export let keyPrefix: string
+    export let defaultDistance: number
+
+    const distanceKey: string = `${keyPrefix}-distance`
+
+    let distanceInput: number | null = getNumberFromLocalStorage(distanceKey) || defaultDistance
+
+    onMount(() => {
+        onInput(distanceInput === null ? NaN : distanceInput)
+    })
+
+    function handleInput() {
+        onInput(distanceInput === null ? NaN : distanceInput)
+        localStorage.setItem(distanceKey, distanceInput ? distanceInput.toString() : "")
     }
 
 </script>
 
 <div class="value-wrapper">
-    <input
+    <input bind:value={distanceInput}
         class="distance-value"
         on:input={handleInput}
         type="number"

@@ -14,3 +14,8 @@
 
     text-align: center;
 }
+
+@mixin valueStyles {
+    font-size: 1.25rem;
+    color: $value-color;
+}

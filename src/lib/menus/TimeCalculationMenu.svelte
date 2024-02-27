@@ -3,6 +3,8 @@
     import SpeedInput from "../inputs/SpeedInput.svelte"
     import TimeOutput from "../outputs/TimeOutput.svelte"
 
+    const keyPrefix: string = "time"
+
     let speed: number
     let distance: number
 
@@ -23,8 +25,20 @@
 
 </script>
 
-<SpeedInput onSelect={onSpeedSelect} />
+<SpeedInput 
+    onSelect={onSpeedSelect}
+    {keyPrefix}
 
-<DistanceInput onInput={onDistanceInput} />
+    defaultMinutes={8}
+    defaultSeconds={0}
+    defaultKilometres={7}
+    defaultDecametres={50}
+/>
+
+<DistanceInput 
+    onInput={onDistanceInput}
+    {keyPrefix}
+    defaultDistance={10}
+/>
 
 <TimeOutput {time} />

@@ -1,14 +1,57 @@
 <script lang="ts">
+    import type { Option } from "../components/Select.svelte"
     import Select from "../components/Select.svelte"
-    import { timeOptions1to60, kilometreOptions1to60, decametreOptions0to99, timeOptions0to59 } from "../scripts/options"
+    import { createOptions, getNumberFromLocalStorage } from "../scripts/utils"
     import { getSpeed, getMinutesAndSeconds } from "../scripts/conversion"
+    import { onMount } from "svelte"
 
+    const minMinutes: number = 1
+    const maxMinutes: number = 60
+    
+    const minSeconds: number = 0
+    const maxSeconds: number = 59
+
+    const minKilometres: number = 1
+    const maxKilometres: number = 60
+
+    const minDecametres: number = 0
+    const maxDecametres: number = 99
+
+    const minuteOptions: Option[] = createOptions(minMinutes, maxMinutes, true) 
+    const secondOptions: Option[] = createOptions(minSeconds, maxSeconds, true)
+    const kilometreOptions: Option[] = createOptions(minKilometres, maxKilometres, false)
+    const decametreOptions: Option[] = createOptions(minDecametres, maxDecametres, false)
+
+    export let keyPrefix: string
     export let onSelect: (newSpeed: number) => void
 
-    let minutes: number = 6
-    let seconds: number = 0
-    let kilometres: number = 10
-    let decametres: number = 0
+    export let defaultMinutes: number
+    export let defaultSeconds: number
+    export let defaultKilometres: number
+    export let defaultDecametres: number
+
+    const minutesKey: string = `${keyPrefix}-speed-minutes`
+    const secondsKey: string = `${keyPrefix}-speed-seconds`
+    const kilometresKey: string = `${keyPrefix}-speed-kilometres`
+    const decametresKey: string = `${keyPrefix}-speed-decametres`
+
+    let minutes: number = getNumberFromLocalStorage(minutesKey, minMinutes, maxMinutes, true) || defaultMinutes
+    let seconds: number = getNumberFromLocalStorage(secondsKey, minSeconds, maxSeconds, true) || defaultSeconds
+    let kilometres: number = getNumberFromLocalStorage(kilometresKey, minKilometres, maxKilometres, true) || defaultKilometres
+    let decametres: number = getNumberFromLocalStorage(decametresKey, minDecametres, maxDecametres, true) || defaultDecametres
+
+    onMount(() => {
+        onSelect(kilometres + (decametres / 100))
+    })
+
+    function updateLocalStorage(): void {
+        setTimeout(() => {
+            localStorage.setItem(minutesKey, minutes.toString())
+            localStorage.setItem(secondsKey, seconds.toString())
+            localStorage.setItem(kilometresKey, kilometres.toString())
+            localStorage.setItem(decametresKey, decametres.toString())
+        })
+    }
 
     function handlePaceChange(): void {
         const pace: number = minutes + (seconds / 60);
@@ -24,26 +67,34 @@
 
     function onMinuteSelect (newMinutes: number): void {
         minutes = newMinutes
+        updateLocalStorage()
+
         if (minutes === 60) seconds = 0
+
         handlePaceChange()
     }
 
     function onSecondSelect (newSeconds: number): void {
         if (minutes !== 60) {
             seconds = newSeconds
+            updateLocalStorage()
             handlePaceChange()
         }
     }
 
     function onKilometreSelect (newKilometres: number): void {
         kilometres = newKilometres
+        updateLocalStorage()
+
         if (kilometres === 60) decametres = 0
+        
         handleSpeedChange()
     }
 
     function onDecametreSelect (newDecametres: number): void {
         if (kilometres !== 60) {
             decametres = newDecametres
+            updateLocalStorage()
             handleSpeedChange()
         }
     }
@@ -52,14 +103,14 @@
 
 <div class="speed-wrapper">
     <div class="value-wrapper">
-        <Select selectedValue={minutes} options={timeOptions1to60} onSelect={onMinuteSelect} />
+        <Select selectedValue={minutes} options={minuteOptions} onSelect={onMinuteSelect} />
         <span>:</span>
-        <Select selectedValue={seconds} options={timeOptions0to59} onSelect={onSecondSelect} />
+        <Select selectedValue={seconds} options={secondOptions} onSelect={onSecondSelect} />
     </div>
     
     <div class="value-wrapper">
-        <Select selectedValue={kilometres} options={kilometreOptions1to60} onSelect={onKilometreSelect} />
+        <Select selectedValue={kilometres} options={kilometreOptions} onSelect={onKilometreSelect} />
         <span>,</span>
-        <Select selectedValue={decametres} options={decametreOptions0to99} onSelect={onDecametreSelect} />
+        <Select selectedValue={decametres} options={decametreOptions} onSelect={onDecametreSelect} />
     </div>
 </div>

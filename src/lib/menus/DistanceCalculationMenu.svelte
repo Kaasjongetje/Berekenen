@@ -3,13 +3,16 @@
     import TimeInput from "../inputs/TimeInput.svelte"
     import DistanceOutput from "../outputs/DistanceOutput.svelte"
 
-    let speed: number = 10
-    let time: number = 60
+    const keyPrefix: string = "distance"
+
+    let speed: number
+    let time: number
 
     $: distance = time / (60 / speed)
 
     function onSpeedSelect (newSpeed: number): void {
         speed = newSpeed
+  
     }
 
     function onTimeSelect (newTime: number): void {
@@ -18,8 +21,22 @@
 
 </script>
 
-<SpeedInput onSelect={onSpeedSelect} />
+<SpeedInput 
+    onSelect={onSpeedSelect} 
+    {keyPrefix}
+    defaultMinutes={6}
+    defaultSeconds={0}
+    defaultKilometres={10}
+    defaultDecametres={0}
+/>
 
-<TimeInput onSelect={onTimeSelect} />
+<TimeInput 
+    onSelect={onTimeSelect} 
+    {keyPrefix}
+
+    defaultHours={0}
+    defaultMinutes={30}
+    defaultSeconds={0}
+/>
 
 <DistanceOutput {distance} />
