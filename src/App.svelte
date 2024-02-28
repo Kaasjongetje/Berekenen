@@ -2,7 +2,7 @@
     export enum CalculationType {
         SPEED = "Snelheid",
         DISTANCE = "Afstand",
-        TIME = "Tijd" 
+        TIME = "Tijd"
     }
 </script>
 
@@ -29,12 +29,14 @@
 {onSelect} 
 />
 
-<div class="calculation-menu-container">
-    {#if selectedCalculationType === "Snelheid"}
-    <SpeedCalculationMenu />
-    {:else if selectedCalculationType === "Afstand"}
-        <DistanceCalculationMenu />
-    {:else if selectedCalculationType === "Tijd"}
-        <TimeCalculationMenu />
-    {/if}
-</div>
+<main class="calculation-menu-container">
+    <div class="calculation-menu-wrapper">
+        {#if selectedCalculationType === "Snelheid"}
+        <SpeedCalculationMenu />
+        {:else if selectedCalculationType === "Afstand"}
+            <DistanceCalculationMenu />
+        {:else if selectedCalculationType === "Tijd"}
+            <TimeCalculationMenu />
+        {/if}
+    </div>
+</main>

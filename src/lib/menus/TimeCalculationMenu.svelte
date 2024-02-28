@@ -30,7 +30,7 @@
     {keyPrefix}
 
     defaultMinutes={8}
-    defaultSeconds={0}
+    defaultSeconds={1}
     defaultKilometres={7}
     defaultDecametres={50}
 />

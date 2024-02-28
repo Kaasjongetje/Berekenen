@@ -1,0 +1,12 @@
+@use "colors" as *;
+
+body {
+    display: grid;
+
+    padding: 0.5rem;
+    gap: 1rem;
+
+    font-family: sans-serif;
+
+    background-color: $background-color;
+}

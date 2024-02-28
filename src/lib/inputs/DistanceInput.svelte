@@ -21,10 +21,13 @@
 
 </script>
 
-<div class="value-wrapper">
-    <input bind:value={distanceInput}
-        class="distance-value"
-        on:input={handleInput}
-        type="number"
-    >
+<div class="field-wrapper">
+    <span class="title">Afstand</span>
+    <div class="value-wrapper">
+        <input bind:value={distanceInput}
+            class="distance-value"
+            on:input={handleInput}
+            type="number"
+        >
+    </div>
 </div>

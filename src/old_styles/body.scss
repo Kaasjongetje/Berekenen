@@ -1,0 +1,14 @@
+@use "colors" as *;
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+
+    padding: 0.5rem;
+    gap: 1.25rem;
+
+    font-family: sans-serif;
+    background-color: $background-color;
+}

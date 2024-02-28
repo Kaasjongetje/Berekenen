@@ -55,7 +55,7 @@
     }
 
     function handleEnter(): void {
-        if (open && hoveredIndex) {
+        if (open && hoveredIndex !== null) {
             const hoveredValue: any = options[hoveredIndex].value
 
             if (hoveredValue !== selectedValue) {
@@ -68,7 +68,7 @@
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div 
+<button 
     class="select"
     tabindex="0"
     class:open={open}
@@ -80,7 +80,7 @@
         {selectedOption?.label}
     </span>
 
-    <div class="select-options">
+    <!-- <div class="select-options">
         {#each options as option, index (option) }
             <span 
                 class="select-option"
@@ -93,5 +93,5 @@
                 {option.label}
             </span>
         {/each}
-    </div>
-</div>
+    </div> -->
+</button>

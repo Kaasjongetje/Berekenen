@@ -1,0 +1,31 @@
+@use "colors" as *;
+@use "mixins" as *;
+
+.value-wrapper {
+    box-sizing: content-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 10ch;
+
+    padding: 0.25rem;
+    @include border;
+
+    @include valueStyles;
+}
+
+.distance-value {
+    padding: 0.25rem;
+    background-color: $background-color;
+    @include valueStyles
+}
+
+.select-value {
+    @include selectValue;
+}
+
+.open .select-value {
+    background-color: $select-color;
+}

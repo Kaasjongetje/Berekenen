@@ -6,7 +6,7 @@ export function formatTime (time: number): string {
     )
 }
 
-export function getNumberFromLocalStorage (key: string, min: number = Number.NEGATIVE_INFINITY, max: number = Number.POSITIVE_INFINITY, mustBeInteger: boolean = false): number | null {
+export function getNumberFromLocalStorage (key: string, min: number = Number.NEGATIVE_INFINITY, max: number = Number.POSITIVE_INFINITY, mustBeInteger: boolean = false, log: boolean = false): number | null {
     const value: string | null = localStorage.getItem(key)
 
     if (!value) return null
@@ -20,6 +20,8 @@ export function getNumberFromLocalStorage (key: string, min: number = Number.NEG
     }
 
     if (number < min || max < number) return null
+
+    if (log) console.log(number)
 
     return number
 }

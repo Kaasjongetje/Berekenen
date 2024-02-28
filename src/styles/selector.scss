@@ -1,27 +1,53 @@
 @use "colors" as *;
 
-.calculation-type-container {
+.calculation-type-options {
     display: flex;
+    
     gap: 0.5rem;
+
 }
 
 .calculation-type {
     flex: 1;
 
     padding: 0.25rem;
-    border-bottom: 0.125rem solid $bordor-color;
-    
-    font-size: 0.75rem;
-    text-align: center;
+
+    border-bottom: 0.125rem solid $line-color;
+
+    font-size: clamp(0.625rem, 0.4403rem + 0.8955vw, 1rem);
     color: $text-color;
 
-    &:hover,
-    &:focus {
+    /*Geen radius bij viewport groter dan 330px*/
+    $radius: 0.25rem;
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+
+    &:hover {
         background-color: $hover-color;
     }
 
     &.selected {
-        border-color: $accent-color; 
+        border-color: $accent-color;
         background-color: $select-color;
+    }
+}
+
+@media (min-width: 330px) {
+    .calculation-type-selector {
+        position: absolute;
+
+        left: 0;
+    }
+
+    .calculation-type-options {
+
+
+        flex-direction: column;
+    }
+
+    .calculation-type {
+        padding: 0.5rem clamp(0.5rem, -0.7313rem + 5.9701vw, 3rem);
+    
+        border-radius: 0;
     }
 }

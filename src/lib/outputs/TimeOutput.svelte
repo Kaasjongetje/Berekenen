@@ -12,12 +12,15 @@
 
 </script>
 
-<div class="value-wrapper">
-    {#if time}
-        <span>{formatTime(hours)}</span>
-        <span>:</span>
-        <span>{formatTime(minutes)}</span>
-        <span>:</span>
-        <span>{formatTime(seconds)}</span>
-    {/if}
+<div class="field-wrapper">
+    <span class="title">Tijd</span>
+    <div class="value-wrapper">
+        {#if time}
+            <span class="output-value">{formatTime(hours)}</span>
+            <span>:</span>
+            <span class="output-value">{formatTime(minutes)}</span>
+            <span>:</span>
+            <span class="output-value">{formatTime(seconds)}</span>
+        {/if}
+    </div>
 </div>

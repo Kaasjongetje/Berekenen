@@ -28,9 +28,9 @@
     const minutesKey: string = `${keyPrefix}-time-minutes`
     const secondsKey: string = `${keyPrefix}-time-seconds`
 
-    let hours: number = getNumberFromLocalStorage(hoursKey, minHours, maxHours, true) || defaultHours 
-    let minutes: number = getNumberFromLocalStorage(minutesKey, minMinutes, maxMinutes, true) || defaultMinutes
-    let seconds: number = getNumberFromLocalStorage(secondsKey, minSeconds, maxSeconds, true) || defaultSeconds
+    let hours: number = getNumberFromLocalStorage(hoursKey, minHours, maxHours, true) ?? defaultHours 
+    let minutes: number = getNumberFromLocalStorage(minutesKey, minMinutes, maxMinutes, true) ?? defaultMinutes
+    let seconds: number = getNumberFromLocalStorage(secondsKey, minSeconds, maxSeconds, true) ?? defaultSeconds
 
     onMount(callOnSelect)
 
@@ -60,10 +60,13 @@
 
 </script>
 
-<div class="value-wrapper">
-    <Select selectedValue={hours} options={hourOptions} onSelect={onHourSelect} />
-    <span>:</span>
-    <Select selectedValue={minutes} options={minuteOptions} onSelect={onMinuteSelect} />
-    <span>:</span>
-    <Select selectedValue={seconds} options={secondOptions} onSelect={onSecondSelect} />
+<div class="field-wrapper">
+    <span class="title">Tijd</span>
+    <div class="value-wrapper">
+        <Select selectedValue={hours} options={hourOptions} onSelect={onHourSelect} />
+        <span>:</span>
+        <Select selectedValue={minutes} options={minuteOptions} onSelect={onMinuteSelect} />
+        <span>:</span>
+        <Select selectedValue={seconds} options={secondOptions} onSelect={onSecondSelect} />
+    </div>
 </div>

@@ -4,6 +4,13 @@
 .select {
     position: relative;
 
+    &:hover {
+        background-color: $hover-color;
+    }
+
+    &:focus {
+        background-color: $select-color;
+    }
 }
 
 .select-options {

@@ -13,19 +13,25 @@
 </script>
 
 <div class="speed-wrapper">
-    <div class="value-wrapper">
-        {#if speed}
-            <span>{minutes}</span>
-            <span>:</span>
-            <span>{seconds}</span>
-        {/if}
+    <div class="field-wrapper">
+        <span class="title">Min/km</span>
+        <div class="value-wrapper">
+            {#if speed}
+                <span class="output-value">{minutes}</span>
+                <span>:</span>
+                <span class="output-value">{seconds}</span>
+            {/if}
+        </div>
     </div>
 
-    <div class="value-wrapper">
-        {#if speed}
-            <span>{kilometres}</span>
-            <span>,</span>
-            <span>{decametres}</span>
-        {/if}
+    <div class="field-wrapper">
+        <span class="title">Km/uur</span>
+        <div class="value-wrapper">
+            {#if speed}
+                <span class="output-value">{kilometres}</span>
+                <span>,</span>
+                <span class="output-value">{decametres}</span>
+            {/if}
+        </div>
     </div>
 </div>

@@ -5,6 +5,8 @@ Belangrijk:
 - Eerste select value kun je niet selecteren met Enter 
 - Bij TimeMenu kan decametres niet 0 zijn
 - Als één value null is bij SpeedInput dan moeten de andere worden geupdate
+- focus select
+- input te veel naar rechts (distance)
 
 Styling:
 - hover en select kleur voor select value

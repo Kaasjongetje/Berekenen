@@ -1,34 +1,30 @@
-@use "colors" as *;
-@use "mixins" as *;
-
 .value-wrapper {
     display: flex;
-    align-items: center;
 
     padding: 0.25rem;
-    @include border;
 
-    @include valueStyles;
-}
+    font-size: 1.25rem;
 
-.distance-value {
-    padding: 0.25rem;
-    background-color: $background-color;
-    @include valueStyles
-}
+    background-color: red;
 
-.select-value {
-    @include selectValue;
-
-    &:hover {
-        background-color: $hover-color;
+    .select,
+    .distance-value {
+        font-size: inherit;
     }
 
-    &:focus {
-        background-color: $select-color;
+    .distance-value {
+        /*Ervoor zorgen dat hij niet buiten het veld gaat*/
+        width: 100%;
     }
 }
 
-.open .select-value {
-    background-color: $select-color;
+.select-value,
+.distance-value,
+.output-value {
+    display: block;
+    padding: 0.25rem;
 }
+
+
+
+
