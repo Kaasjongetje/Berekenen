@@ -43,4 +43,6 @@
     defaultSeconds={0}
 />
 
+<div class="dividing-line"></div>
+
 <SpeedOutput {speed} />

@@ -62,6 +62,7 @@
 
 <div class="field-wrapper">
     <span class="title">Tijd</span>
+    <span class="unit">uur:min:sec</span>
     <div class="value-wrapper">
         <Select selectedValue={hours} options={hourOptions} onSelect={onHourSelect} />
         <span>:</span>

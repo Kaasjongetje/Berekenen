@@ -1,20 +1,16 @@
 Update systeem?
 - Kijk of je iets in de Response Head kan zetten van last modified en zo het update systeem maken
 
-Belangrijk:
-- Eerste select value kun je niet selecteren met Enter 
-- Bij TimeMenu kan decametres niet 0 zijn
-- Als één value null is bij SpeedInput dan moeten de andere worden geupdate
-- focus select
-- input te veel naar rechts (distance)
+ToDo:
+- Bij het openen van select scrollen naar geselecteerde value
 
-Styling:
-- hover en select kleur voor select value
-- resets (input, :focus)
-- responsive
-
-- Updates testen met updatefound etc
-- Hoe worden images ge-update?                
+Bugs:
+- Tijd verandert soms na refresh ook al is speed en distance niet veranderd
+(Dit is alleen bij tempo zo:
+Tempo wordt omgezet naar speed
+Speed krijgt dan een kommagetal
+Na de refresh is dat kommagetal weg
+Dus kan het een paar seconden afwijken)
 
 SpeedOutput Finetune:
 - code mooier maken

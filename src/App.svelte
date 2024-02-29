@@ -9,16 +9,32 @@
 <script lang="ts">
     import "./style.scss"
     import CalculationTypeSelector from "./lib/components/CalculationTypeSelector.svelte"
-
     import SpeedCalculationMenu from "./lib/menus/SpeedCalculationMenu.svelte"
     import DistanceCalculationMenu from "./lib/menus/DistanceCalculationMenu.svelte"
     import TimeCalculationMenu from "./lib/menus/TimeCalculationMenu.svelte"
 
-    let selectedCalculationType: CalculationType = CalculationType.TIME
+    const calculationTypeKey: string = "calculation-type"
+
+    let selectedCalculationType: CalculationType = loadCalculationType() ?? CalculationType.SPEED
 
     function onSelect (calculationType: CalculationType): void {
         if (selectedCalculationType !== calculationType) {
             selectedCalculationType = calculationType
+            localStorage.setItem(calculationTypeKey, calculationType)
+        }
+    }
+
+    function loadCalculationType(): CalculationType | null {
+        const value: string | null = localStorage.getItem(calculationTypeKey)
+
+        if (value === null) return null
+
+        const calculationTypeValues: string[] = Object.values(CalculationType)
+
+        if (calculationTypeValues.includes(value)) {
+            return value as CalculationType
+        } else {
+            return null
         }
     }
 

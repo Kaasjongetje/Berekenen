@@ -65,6 +65,10 @@
 
         open = !open
     }
+
+    function handleBlur(): void {
+        open = false
+    }
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -75,12 +79,13 @@
 
     on:click={handleClick}
     on:keydown={handleKeydown}
+    on:blur={handleBlur}
 >
     <span class="select-value">
         {selectedOption?.label}
     </span>
 
-    <!-- <div class="select-options">
+    <div class="select-options">
         {#each options as option, index (option) }
             <span 
                 class="select-option"
@@ -93,5 +98,5 @@
                 {option.label}
             </span>
         {/each}
-    </div> -->
+    </div>
 </button>

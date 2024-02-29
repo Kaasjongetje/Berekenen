@@ -1,0 +1,21 @@
+@use "colors" as *;
+@use "sizes" as *;
+
+@mixin border {
+    border: $border-size solid $border-color;
+    border-radius: 0.25rem;
+}
+
+@mixin value {
+    display: block;
+
+    padding: $value-padding;
+}
+
+@mixin selectValue {
+    box-sizing: content-box;
+
+    width: 2ch;
+
+    text-align: center;
+}

@@ -14,6 +14,7 @@
 
 <div class="field-wrapper">
     <span class="title">Tijd</span>
+    <span class="unit">uur:min:sec</span>
     <div class="value-wrapper">
         {#if time}
             <span class="output-value">{formatTime(hours)}</span>

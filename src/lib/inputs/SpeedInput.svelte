@@ -104,7 +104,8 @@
 
 <div class="speed-wrapper">
     <div  class="field-wrapper">
-        <span class="title">Min/km</span>
+        <span class="title">Tempo</span>
+        <span class="unit">Min/km</span>
         <div class="value-wrapper">
             <Select selectedValue={minutes} options={minuteOptions} onSelect={onMinuteSelect} />
             <span>:</span>
@@ -113,7 +114,8 @@
     </div>
     
     <div class="field-wrapper">
-        <span class="title">Km/uur</span>
+        <span class="title">Snelheid</span>
+        <span class="unit">Km/uur</span>
         <div class="value-wrapper">
             <Select selectedValue={kilometres} options={kilometreOptions} onSelect={onKilometreSelect} />
             <span>,</span>

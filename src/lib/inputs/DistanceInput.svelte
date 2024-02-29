@@ -23,6 +23,7 @@
 
 <div class="field-wrapper">
     <span class="title">Afstand</span>
+    <span class="unit">km</span>
     <div class="value-wrapper">
         <input bind:value={distanceInput}
             class="distance-value"

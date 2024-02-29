@@ -41,4 +41,6 @@
     defaultDistance={10}
 />
 
+<div class="dividing-line"></div>
+
 <TimeOutput {time} />

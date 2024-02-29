@@ -1,28 +1,51 @@
-.value-wrapper {
-    display: flex;
+@use "colors" as *;
+@use "mixins" as *;
 
-    padding: 0.25rem;
+.value-wrapper {
+    box-sizing: content-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+
+    width: 11ch;
+
+    padding: 0.25rem clamp(0.25rem, -2.5000rem + 8.8000vw, 3rem);
 
     font-size: 1.25rem;
+    color: $value-color;
 
-    background-color: red;
+    @include border;
 
     .select,
     .distance-value {
         font-size: inherit;
+        /*Hiervan kan select-value weer van inheritten*/
+        color: inherit;
     }
 
     .distance-value {
         /*Ervoor zorgen dat hij niet buiten het veld gaat*/
         width: 100%;
+
+        text-align: center;
     }
 }
 
 .select-value,
 .distance-value,
 .output-value {
-    display: block;
-    padding: 0.25rem;
+    @include value;
+}
+
+.select-value,
+.output-value {
+    @include selectValue;
+}
+
+.select-value {
+    border-radius: 0.25rem;
 }
 
 

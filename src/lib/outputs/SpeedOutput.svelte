@@ -14,7 +14,8 @@
 
 <div class="speed-wrapper">
     <div class="field-wrapper">
-        <span class="title">Min/km</span>
+        <span class="title">Tempo</span>
+        <span class="unit">Min/km</span>
         <div class="value-wrapper">
             {#if speed}
                 <span class="output-value">{minutes}</span>
@@ -25,7 +26,8 @@
     </div>
 
     <div class="field-wrapper">
-        <span class="title">Km/uur</span>
+        <span class="title">Snelheid</span>
+        <span class="unit">Km/uur</span>
         <div class="value-wrapper">
             {#if speed}
                 <span class="output-value">{kilometres}</span>

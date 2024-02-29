@@ -1,0 +1,67 @@
+@use "colors" as *;
+@use "mixins" as *;
+@use "sizes" as *;
+
+.select {
+    position: relative;
+
+    &.open {
+        .select-value {
+            background-color: $select-color;
+        }
+
+        .select-options {
+            display: block;
+        }
+    }
+
+    &:hover {
+        .select-value {
+            background-color: $hover-color;
+        }
+    }
+
+    &:focus {
+        .select-value {
+            background-color: $select-color;
+        }
+    }
+}
+
+.select-options {
+    position: absolute;
+
+    display: none;
+    z-index: 1;
+    /*0.25rem achteraan is het gat tussen de value-wrapper en de select-options*/
+    top: calc(100% + $value-padding + $border-size + 0.25rem);
+
+    height: 300%;
+
+    @include border;
+
+    background-color: $background-color; 
+
+    overflow-y: scroll;
+
+    /*Scrollbar weghalen*/
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.select-option {
+    @include value;
+    @include selectValue;
+
+    &.hovered {
+        background-color: $hover-color;
+    }
+
+    &.selected {
+        background-color: $select-color
+    }
+}

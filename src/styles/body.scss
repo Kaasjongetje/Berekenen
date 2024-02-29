@@ -10,3 +10,19 @@ body {
 
     background-color: $background-color;
 }
+
+@media (min-width: 500px) {
+    body {
+        padding: 1rem;
+    }
+}
+
+button {
+    cursor: pointer;
+}
+
+::selection {
+    color: $value-color;
+
+    background-color: $line-color;
+}

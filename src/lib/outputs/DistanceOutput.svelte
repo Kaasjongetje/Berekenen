@@ -4,6 +4,7 @@
 
 <div class="field-wrapper">
     <span class="title">Afstand</span>
+    <span class="unit">km</span>
     <div class="value-wrapper">
         <span class="distance-value">
             {distance.toFixed(2).replace(".", ",")}

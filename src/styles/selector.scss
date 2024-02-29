@@ -14,7 +14,7 @@
 
     border-bottom: 0.125rem solid $line-color;
 
-    font-size: clamp(0.625rem, 0.4403rem + 0.8955vw, 1rem);
+    font-size: clamp(0.625rem, 0.2500rem + 1.2000vw, 1rem);
     color: $text-color;
 
     /*Geen radius bij viewport groter dan 330px*/
@@ -32,7 +32,7 @@
     }
 }
 
-@media (min-width: 330px) {
+@media (min-width: 500px) {
     .calculation-type-selector {
         position: absolute;
 
@@ -46,7 +46,7 @@
     }
 
     .calculation-type {
-        padding: 0.5rem clamp(0.5rem, -0.7313rem + 5.9701vw, 3rem);
+        padding: 0.5rem clamp(0.5rem, -2.0000rem + 8.0000vw, 3rem);
     
         border-radius: 0;
     }
