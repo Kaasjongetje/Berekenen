@@ -13,16 +13,29 @@
     let open: boolean = false
     let hoveredIndex: number | null = null
 
+    let selectOptionsRef: HTMLUListElement
+
     $: selectedOption = options.find(option => option.value === selectedValue)
+
+    function handleOpen(): void {
+        setTimeout(() => {
+            selectOptionsRef.querySelector(".selected")
+                ?.scrollIntoView({ block: "center" })
+        })
+    }
 
     function handleClick(): void {
         open = !open
+        if (open) handleOpen()
     }
 
     function handleKeydown (e: KeyboardEvent): void {
         switch (e.code) {
             case "Space":
-                if (!open) open = true
+                if (!open) {
+                    open = true
+                    handleOpen()
+                } 
                 break
             case "Escape":
                 if (open) open = false
@@ -85,7 +98,7 @@
         {selectedOption?.label}
     </span>
 
-    <div class="select-options">
+    <ul class="select-options" bind:this={selectOptionsRef}>
         {#each options as option, index (option) }
             <span 
                 class="select-option"
@@ -98,5 +111,5 @@
                 {option.label}
             </span>
         {/each}
-    </div>
+    </ul>
 </button>

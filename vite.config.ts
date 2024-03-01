@@ -7,4 +7,13 @@ export default defineConfig({
   plugins: [svelte({
     preprocess: sveltePreprocess()
   })],
+
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: "script.js",
+        assetFileNames: "style.css"
+      }
+    }
+  }
 })
