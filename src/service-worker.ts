@@ -4,7 +4,7 @@
 
 const sw = self as unknown as ServiceWorkerGlobalScope
 
-const VERSION = "1"
+const VERSION = "1.1"
 const STATIC_CACHE_NAME = `static-v${VERSION}`
 
 const STATIC_FILES = [
