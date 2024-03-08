@@ -16,9 +16,15 @@ const STATIC_FILES = [
     "/512.png"
 ]
 
-sw.addEventListener("install", async () => {
-    const cache: Cache = await caches.open(STATIC_CACHE_NAME)
-    cache.addAll(STATIC_FILES)
+sw.addEventListener("install", async (e: ExtendableEvent) => {
+    e.waitUntil(
+        caches.open(STATIC_CACHE_NAME)
+            .then(cache => {
+                cache.addAll(STATIC_FILES)
+            })
+    )
+
+    sw.skipWaiting()
 })
 
 sw.addEventListener("fetch", async () => {

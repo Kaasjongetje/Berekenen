@@ -12,6 +12,7 @@
     import SpeedCalculationMenu from "./lib/menus/SpeedCalculationMenu.svelte"
     import DistanceCalculationMenu from "./lib/menus/DistanceCalculationMenu.svelte"
     import TimeCalculationMenu from "./lib/menus/TimeCalculationMenu.svelte"
+    import NewVersionToast from "./lib/components/NewVersionToast.svelte"
 
     const calculationTypeKey: string = "calculation-type"
 
@@ -56,3 +57,5 @@
         {/if}
     </div>
 </main>
+
+<NewVersionToast />
